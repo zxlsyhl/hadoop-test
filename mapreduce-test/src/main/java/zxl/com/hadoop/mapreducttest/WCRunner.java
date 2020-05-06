@@ -37,6 +37,8 @@ public class WCRunner {
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
 
+        job.setCombinerClass(WCReducer.class);//对每个mapper结果进行reduce，能帮助减少mapper和reduce之间的数据传输量
+
         //job用哪个类作为Reducer 指定数据输入输出类型是什么
         job.setReducerClass(WCReducer.class);
         job.setOutputKeyClass(Text.class);
