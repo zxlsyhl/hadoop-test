@@ -15,7 +15,12 @@ public class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWr
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
         String year = line.substring(0,4);
-        int airTemperature = Integer.parseInt(line.substring(4,8));
+        int airTemperature = 0;
+        try {
+            airTemperature = Integer.parseInt(line.substring(4,8));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
         if(airTemperature>100){
             System.err.println("Temperature over 100 degrees fro input:"+ value);
             context.setStatus("Detected possibly corrupt record: see logs.");
