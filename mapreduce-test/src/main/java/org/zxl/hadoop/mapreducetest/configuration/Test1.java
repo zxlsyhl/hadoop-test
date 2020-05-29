@@ -1,4 +1,4 @@
-package org.zxl.hadoop.mapreducttest.configuration;
+package org.zxl.hadoop.mapreducetest.configuration;
 
 import org.apache.hadoop.conf.Configuration;
 import org.junit.Test;

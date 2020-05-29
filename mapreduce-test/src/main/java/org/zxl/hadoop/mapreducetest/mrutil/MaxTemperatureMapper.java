@@ -1,18 +1,26 @@
-package org.zxl.hadoop.mapreducttest.mrutil;
+package org.zxl.hadoop.mapreducetest.mrutil;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        try {
+            //获取FileSpilt对象，包含输入文件的信息
+            FileSplit fileSplit = (FileSplit) context.getInputSplit();
+            System.out.println(String.format("************fileSplit.getPath()=[%s],fileSplit.getStart()=[%s],fileSplit.getLength()=[%s]",fileSplit.getPath(),fileSplit.getStart(),fileSplit.getLength()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+
         String line = value.toString();
         String year = line.substring(0,4);
         int airTemperature = 0;

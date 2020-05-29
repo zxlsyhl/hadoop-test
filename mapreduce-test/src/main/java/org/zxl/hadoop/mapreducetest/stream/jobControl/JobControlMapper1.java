@@ -1,4 +1,4 @@
-package org.zxl.hadoop.mapreducttest.stream.jobControl;
+package org.zxl.hadoop.mapreducetest.stream.jobControl;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -7,19 +7,14 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class JobControlMapper2 extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class JobControlMapper1 extends Mapper<LongWritable, Text, Text, IntWritable> {
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-
-        String[] spl2=value.toString().split("\t");
-        if(spl2.length==2){
-            String date = spl2[0].trim();
-            String year = date.substring(0,4);
-            int temperture = Integer.parseInt(spl2[1].trim());
-            System.out.println(String.format("JobControlMapper2:date[%s]-airTemperature[%s]",date,temperture));
-            context.write(new Text(year), new IntWritable(temperture));
-        }
+        String line = value.toString();
+        String date = line.substring(0,6);
+        int airTemperature = Integer.parseInt(line.substring(6,10));
+        System.out.println(String.format("JobControlMapper1:date[%s]-airTemperature[%s]",date,airTemperature));
 //        if(airTemperature>100){
 //            System.err.println("Temperature over 100 degrees fro input:"+ value);
 //            context.setStatus("Detected possibly corrupt record: see logs.");
@@ -31,5 +26,6 @@ public class JobControlMapper2 extends Mapper<LongWritable, Text, Text, IntWrita
 //            temperatures.add(temperature);
 //        }
 
+        context.write(new Text(date), new IntWritable(airTemperature));
     }
 }

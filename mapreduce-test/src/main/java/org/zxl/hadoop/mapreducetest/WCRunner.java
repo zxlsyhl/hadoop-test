@@ -1,4 +1,4 @@
-package org.zxl.hadoop.mapreducttest;
+package org.zxl.hadoop.mapreducetest;
 import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;

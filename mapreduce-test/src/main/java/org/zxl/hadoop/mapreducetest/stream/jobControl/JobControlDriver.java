@@ -1,4 +1,4 @@
-package org.zxl.hadoop.mapreducttest.stream.jobControl;
+package org.zxl.hadoop.mapreducetest.stream.jobControl;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;

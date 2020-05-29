@@ -1,4 +1,4 @@
-package org.zxl.hadoop.mapreducttest.stream.chain;
+package org.zxl.hadoop.mapreducetest.stream.chain;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;

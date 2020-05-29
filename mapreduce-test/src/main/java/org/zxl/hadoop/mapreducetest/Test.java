@@ -1,6 +1,5 @@
-package org.zxl.hadoop.mapreducttest;
+package org.zxl.hadoop.mapreducetest;
 
-import java.util.HashMap;
 import java.util.Properties;
 
 public class Test {

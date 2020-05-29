@@ -1,4 +1,4 @@
-package org.zxl.hadoop.mapreducttest.mrutil;
+package org.zxl.hadoop.mapreducetest.mrutil;
 
 public class Temperature {
     private int year;
