@@ -24,6 +24,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * 默认支持事务，全部成功或全部失败
+ */
 public class DBOutputFormatDriver extends Configured implements Tool {
     static class TblsWritable implements Writable, DBWritable{
         String tbl_name ; int tbl_age;
