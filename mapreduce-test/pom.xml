@@ -12,7 +12,7 @@
     <artifactId>mapreduce-test</artifactId>
 
     <properties>
-        <hadoop.version>2.7.3</hadoop.version>
+        <hadoop.version>3.2.3</hadoop.version>
     </properties>
 
     <dependencies>
